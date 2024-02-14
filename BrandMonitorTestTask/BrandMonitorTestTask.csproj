@@ -1,0 +1,43 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+    <PropertyGroup>
+        <TargetFramework>net8.0</TargetFramework>
+        <Nullable>enable</Nullable>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <InvariantGlobalization>true</InvariantGlobalization>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Dapper" Version="2.1.28" />
+        <PackageReference Include="FluentMigrator" Version="5.0.0" />
+        <PackageReference Include="FluentMigrator.Runner.Postgres" Version="5.0.0" />
+        <PackageReference Include="MediatR" Version="12.2.0" />
+        <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="8.0.1" />
+        <PackageReference Include="Npgsql" Version="8.0.2" />
+        <PackageReference Include="SimpleInjector" Version="5.4.4" />
+        <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
+        <PackageReference Include="System.Data.SqlClient" Version="4.8.6" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <Compile Update="DataAccess\Handlers\V1\GetRecord.cs">
+            <DependentUpon>TestGetHandler.cs</DependentUpon>
+        </Compile>
+        <Compile Update="DataAccess\Handlers\V1\CreateRecord.cs">
+            <DependentUpon>TestCreateHandler.cs</DependentUpon>
+        </Compile>
+        <Compile Update="DataAccess\Handlers\V1\SetStatus.cs">
+          <DependentUpon>SetStatusHandler.cs</DependentUpon>
+        </Compile>
+        <Compile Update="DataAccess\Handlers\V1\GetRecordsForUpdate.cs">
+          <DependentUpon>GetRecordsForUpdateHandler.cs</DependentUpon>
+        </Compile>
+    </ItemGroup>
+
+    <ItemGroup>
+        <Content Update="appsettings.Development.json">
+            <DependentUpon>appsettings.json</DependentUpon>
+        </Content>
+    </ItemGroup>
+
+</Project>
